@@ -13,15 +13,24 @@ public class InputView {
 
     public List<String> inputCarName() {
         outputView.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        List<String> carNames = seperateCarNames(Console.readLine());
-        validator.validateCarNames(carNames);
 
+        List<String> separatedCarNames = separateCarNames(readCarNames());
+        validator.validateCarNames(separatedCarNames);
+
+        return separatedCarNames;
+    }
+
+    private String readCarNames() {
+        String carNames = Console.readLine();
+        validator.validateCarCount(carNames);
         return carNames;
     }
 
-    private List<String> seperateCarNames(String carNames) {
-        return Arrays.stream(carNames.split(","))
+    private List<String> separateCarNames(String carNames) {
+        List<String> separatedCarNames = Arrays.stream(carNames.split(","))
                 .collect(Collectors.toList());
+
+        return separatedCarNames;
     }
 
     public int inputTryCount() {
