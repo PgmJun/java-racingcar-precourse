@@ -1,8 +1,17 @@
 package racingcar.view;
 
 import java.util.List;
+import java.util.StringJoiner;
 
 public class OutputView {
+    private final static String WINNER_NAME_SEPARATOR = ", ";
+    public void printWinners(List<String> winners) {
+        print("최종 우승자 : ");
+        StringJoiner winnerJoiner = new StringJoiner(WINNER_NAME_SEPARATOR);
+        winners.forEach(winner -> winnerJoiner.add(winner));
+
+        println(winnerJoiner.toString());
+    }
 
     public void printError(Exception error) {
         System.out.println(error.getMessage());
@@ -18,17 +27,6 @@ public class OutputView {
 
     public void printEnter() {
         System.out.println();
-    }
-
-    public void printWinners(List<String> winners) {
-        print("최종 우승자 : ");
-        for(int i =0;i<winners.size();i++) {
-            if(i != winners.size()-1) {
-                print(winners.get(i) + ", ");
-                continue;
-            }
-            println(winners.get(i));
-        }
     }
 
 }
