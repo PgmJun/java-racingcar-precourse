@@ -23,5 +23,9 @@ public class Car {
         return carPosition;
     }
 
+    public void move(int whetherToMove) {
+        position += whetherToMove;
+    }
+
 
 }

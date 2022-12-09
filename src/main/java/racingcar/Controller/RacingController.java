@@ -18,6 +18,8 @@ public class RacingController extends Controller{
 
     @Override
     public void run() {
-        List<Car> cars = carService.changeNamesToCars(inputView.inputCarName());
+        List<Car> cars = carService.changeNamesToCars(repeat(inputView::inputCarName));
+        cars = carService.tryMove(repeat(inputView::inputTryCount), cars);
+
     }
 }

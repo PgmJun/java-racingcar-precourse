@@ -13,4 +13,12 @@ public class Validator {
         }
     }
 
+    public int validateTryCount(String tryCount) {
+        try {
+            return Integer.parseInt(tryCount);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(ERROR_PREFIX+"시도할 횟수는 정수 값이어야 합니다.");
+        }
+    }
+
 }

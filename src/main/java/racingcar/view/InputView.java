@@ -23,4 +23,11 @@ public class InputView {
         return Arrays.stream(carNames.split(","))
                 .collect(Collectors.toList());
     }
+
+    public int inputTryCount() {
+        outputView.println("시도할 회수는 몇회인가요?");
+        int tryCount = validator.validateTryCount(Console.readLine());
+
+        return tryCount;
+    }
 }
