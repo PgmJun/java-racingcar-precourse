@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.util.Separator;
 import racingcar.util.Validator;
 
 import java.util.Arrays;
@@ -10,6 +11,7 @@ import java.util.stream.Collectors;
 public class InputView {
     private final OutputView outputView = new OutputView();
     private final Validator validator = new Validator();
+    private final Separator separator = new Separator();
 
     public List<String> inputCarName() {
         outputView.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -27,10 +29,7 @@ public class InputView {
     }
 
     private List<String> separateCarNames(String carNames) {
-        List<String> separatedCarNames = Arrays.stream(carNames.split(","))
-                .collect(Collectors.toList());
-
-        return separatedCarNames;
+        return separator.carNamesSeparate(carNames);
     }
 
     public int inputTryCount() {
