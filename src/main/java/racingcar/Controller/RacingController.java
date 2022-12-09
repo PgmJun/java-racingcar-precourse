@@ -21,5 +21,6 @@ public class RacingController extends Controller{
         List<Car> cars = carService.changeNamesToCars(repeat(inputView::inputCarName));
         cars = carService.tryMove(repeat(inputView::inputTryCount), cars);
 
+        outputView.printWinners(carService.getWinners(cars));
     }
 }
